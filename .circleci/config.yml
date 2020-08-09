@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/php:7.3-apache
+      - image: circleci/php:7.3-node-browsers
         environment:
           - APP_DEBUG: true
           - APP_ENV: testing
@@ -10,7 +10,7 @@ jobs:
           - DB_DATABASE: attendance
           - DB_USERNAME: root
 
-      - image: circleci/mysql5.7.29-ram
+      - image: circleci/mysql5.7-ram
         environment:
           - MYSQL_ALLOW_EMPTY_PASSWORD: true
           - MYSQL_DATABASE: attendance
