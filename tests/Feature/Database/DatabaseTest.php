@@ -2,14 +2,13 @@
 
 namespace Tests\Feature\Database;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
+use \Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
 use App\Book;
 
 class DatabaseTest extends TestCase
 {
-    use RefreshDatabase;
+    use DatabaseTransactions;
 
     public function testDatabase()
     {
