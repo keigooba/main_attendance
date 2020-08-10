@@ -3,6 +3,8 @@
 namespace Tests\Feature\Database;
 
 use \Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Tests\TestCase;
 use App\Book;
 
