@@ -10,7 +10,7 @@ jobs:
           - DB_DATABASE: attendance
           - DB_USERNAME: root
 
-      - image: circleci/mysql5.7.29
+      - image: circleci/mysql5.7.29-ram
         environment:
           - MYSQL_ALLOW_EMPTY_PASSWORD: true
           - MYSQL_DATABASE: attendance
