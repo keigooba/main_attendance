@@ -1,0 +1,419 @@
+/* 1rem=16px 文字サイズ：80px,40px,32px,16px使用*/
+
+/* 基本設定 */
+body {
+  margin: 0;
+  padding: 0;
+  color: #444;
+  line-height: 150%;
+  padding-top: 85px;
+}
+h1,h2,h3,h4,h5,h6,p{
+  margin: 0 !important;
+  padding: 0 !important;
+}
+a {
+  color:#000000 !important;
+  text-decoration: none !important;
+}
+a:hover {
+  color: #ffffff !important;
+}
+ul {
+  padding: 0;
+  margin: 0;
+}
+li {
+  list-style:none;
+}
+.btn {
+  border-radius: 80px;
+  font-weight: bold;
+}
+.bg-lightblue {
+  background: #DDDDFF;
+}
+.bg-brown {
+  background: #523912;
+}
+.font-large {
+  font-size: 5rem;
+}
+.font-medium {
+  font-size: 2rem;
+}
+.font-small {
+  font-size: 1.5rem;
+}
+.padding {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+/* ヘッダー・メインメニュー・フッタ-・copyrightの高さ */
+#header {
+  height: 85px;
+}
+#main {
+  height: 795px;
+}
+#footer {
+  height: 170px;
+}
+#copyright {
+  height: 30px;
+}
+
+/* ヘッダー */
+.header_title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  font-family: 'Roboto',sans-serif;
+}
+
+/* ナビゲーション */
+#js-nav-toggle {
+  display: none;
+}
+.header_nav {
+  display: block;
+}
+.header_nav ul li {
+  float: left;
+  margin-right: 1.25rem;
+  font-weight: bold;
+}
+
+/* 出退勤ボタン */
+.attendance_btn button[type="submit"] {
+  width: 49%;
+  height: 150px;
+}
+
+/* 出退勤状況ボタン */
+.situation_btn button[type="button"] {
+  width: 100%;
+  height: 100px;
+}
+
+/* ユーザー選択ボタン */
+.user_btn {
+  height: 435px;
+  overflow-y: scroll;
+}
+.user_btn button[type="radio"] {
+  width: 49%;
+  height: 50px;
+}
+
+/* 検索ボタン */
+.search input[type="submit"] {
+  height: 45px;
+  border-radius: initial;
+}
+
+/* ログ */
+.log_container {
+  width: 85%;
+  height: 435px;
+  padding: .5rem;
+  font-size: 1.7rem;
+  overflow-y: scroll;
+  float: right;
+}
+.log_container p{
+  padding-bottom: .3rem !important;
+}
+.log_container p span{
+  padding: 0 .3rem;
+}
+
+/* フッター */
+.operation ul li {
+  margin-bottom: .5rem;
+}
+.operation ul li a{
+  color: #FFC007 !important;
+}
+.operation ul li a:hover{
+  color: #ffffff !important;
+}
+
+/* テーブル */
+.mypage_table {
+  margin: 1rem auto;
+}
+.situation_table {
+  width: 55%;
+  margin: 1rem auto;
+}
+table th,
+table td {
+  padding: 15px;
+}
+thead {
+  display: block;
+}
+tbody {
+  display: block;
+  overflow-y : scroll;
+  height: 500px;
+}
+.id {
+  min-width: 75px;
+}
+.date {
+  min-width: 220px;
+}
+.time {
+  min-width: 160px;
+}
+.command {
+  min-width: 120px;
+}
+.user {
+  min-width: 191px;
+}
+
+/* フォーム */
+.form {
+  width: 25%;
+  margin: 0 auto;
+}
+.text_area {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  height: 45px;
+  font-size: 1.5rem;
+}
+.form input[type="submit"] {
+  width: 200px;
+  height: 50px;
+  float: right;
+  margin-top: 3rem;
+  font-size: 1.5rem;
+}
+
+/* 使い方 矢印方向 */
+.fa-caret-up {
+  transform: rotateZ(180deg);
+}
+
+/* セレクトボックス */
+.select_box {
+  width: 20%;
+  height: 50px;
+}
+.select_text {
+  width: 29%;
+  margin: 0 auto !important;
+  text-align: initial;
+}
+
+/* 編集・削除 */
+.edit,
+.delete {
+  border-bottom: 1px solid;
+}
+.edit:hover,
+.delete:hover {
+  border-bottom: none;
+}
+
+/* メッセージ表示 */
+.msg-slide {
+  height: 150px;
+  width: 600px;
+  display: block;
+  position: fixed;
+  z-index: 2;
+  top: 35%;
+  left: 35%;
+  padding: 50px !important;
+  background: rgba(0,0,0,0.6);
+  color: #ffffff;
+  border-radius: 50px;
+}
+
+/* メディアクエリ */
+@media (max-width: 992px) {
+
+  /* メインメニュー */
+  #main {
+    min-height: 795px;
+  }
+
+  /* ハンバーガーメニュー */
+  #js-nav-toggle {
+    display: block;
+    position: absolute;
+    top: 35%;
+    right: 5%;
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+  .nav-toggle {
+    height: 90%;
+    width: 100%;
+    position: relative;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 100%;
+    height: 5px;
+    background: #000000;
+    position: absolute;
+    transition: all .8s;
+  }
+  .nav-toggle span:nth-child(1) {
+    top: 0;
+  }
+  .nav-toggle span:nth-child(2) {
+    top: 0;
+    bottom: 0;
+    margin: auto;
+  }
+  .nav-toggle span:nth-child(3) {
+    bottom: 0;
+  }
+  #js-nav-toggle.show span {
+    z-index: 3;
+    background: #ffffff;
+  }
+  #js-nav-toggle.show span:nth-child(1) {
+    transform: translateY(10px) rotate(-45deg);
+  }
+  #js-nav-toggle.show span:nth-child(2) {
+    opacity: 0;
+  }
+  #js-nav-toggle.show span:nth-child(3) {
+    transform: translateY(-10px) rotate(45deg);
+  }
+
+  /* ナビゲーション */
+  .header_nav {
+    display:none;
+  }
+  .header_nav.show {
+    width: 100%;
+    height: 667px;
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background: rgba(0,0,0,0.6);
+  }
+  #nav-toggle-2 {
+    width: 70%;
+    height: 100%;
+    padding-top: 100px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .header_nav.show ul li {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  .header_nav ul li a{
+    border-bottom: 3px solid #ffffff;
+    color: #ffffff !important;
+  }
+  .header_nav ul li a:hover{
+    opacity: 0.7;
+    border-bottom: none;
+  }
+  #main {
+    height: inherit;
+  }
+  /* 出退勤ボタン */
+  .attendance_btn button[type="submit"] {
+    font-size: 2.5rem;
+  }
+  .log_container {
+    width: 100%;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+  }
+
+  /* フッター非表示 */
+  #footer {
+    display: none;
+  }
+
+  #copyright {
+    font-size:  .8rem;
+  }
+
+  /* フォーム */
+  .form {
+    width: 100%;
+  }
+  .form input[type="submit"] {
+    width: 160px;
+  }
+
+  /* メッセージ表示 */
+  .msg-slide{
+    width: 300px;
+    left: 10%;
+  }
+
+  /* テーブル余白 */
+  .table_container {
+    margin-top: 1rem;
+  }
+
+  /* セレクトボックス */
+  .select_box {
+    width: 60%;
+  }
+  .select_text {
+    width: 85%;
+  }
+
+  /* 検索フォーム */
+  .search {
+    margin-bottom: 1rem;
+  }
+
+  /* テーブル */
+  /* table {
+    width: 20%;
+    margin: 0 auto;
+  } */
+  table th,
+  table td {
+    font-size: 1rem;
+    padding: 5px;
+  }
+  thead {
+    display: block;
+  }
+  tbody {
+    display: block;
+    overflow-y : scroll;
+    height: 300px;
+  }
+  .id {
+    min-width: 35px;
+  }
+  .date {
+    min-width: 105px;
+  }
+  .time {
+  min-width: 80px;
+  }
+  .command {
+  min-width: 60px;
+  }
+  .user {
+    min-width: 100px;
+  }
+
+}
