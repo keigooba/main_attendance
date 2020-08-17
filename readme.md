@@ -6,7 +6,7 @@
 
 You can know at a glance when employees come and go. (Can be used instead of a time card)
 
-![]https://xd.adobe.com/view/1448ddac-01c6-454d-86d5-25df977580d4-411b/
+https://xd.adobe.com/view/1448ddac-01c6-454d-86d5-25df977580d4-411b/
 
 This is an image created with adobe.
 All you have to do is press the user name and press going or leaving. You can operate it intuitively.
@@ -17,7 +17,7 @@ I use docker, aws and circleci.
 
 Use AWS in the production environment and docker in the local environment. Also use circleci.
 
-Attendance used [main_attendance](https://github.com/keigooba/main_attendance) and docker.
+Attendance used [main_attendance] file(https://github.com/keigooba/main_attendance) and docker file.
 
 # Requirement
 
@@ -27,7 +27,7 @@ Attendance used [main_attendance](https://github.com/keigooba/main_attendance) a
 
 # Installation
 
-![]https://qiita.com/sano1202/items/963c4677f14790863b67
+https://qiita.com/sano1202/items/963c4677f14790863b67/
 
 See above article.
 
