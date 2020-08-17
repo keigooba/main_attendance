@@ -34,14 +34,15 @@
         <ul id="nav-toggle-2">
           @if($target == 'default')
           <li><a href="/help" class="nav_link">使い方</a></li>
-          <li><a href="/user/create" class="nav_link">ユーザー登録</a></li>
-          <li><a href="/login" class="nav_link">ログイン</a></li>
+          <li><a href="{{ route('register') }}" class="nav_link">{{ __('Register') }}</a></li>
+          <li><a href="{{ route('login') }}" class="nav_link">{{ __('Login') }}</a></li>
           @elseif($target == 'user')
-          <li><a href="/logout" class="nav_link">ログアウト</a></li>
+          <li><a href="{{ route('logout') }}" class="nav_link">{{ __('Logout') }}</a>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form></li>
           <li><a href="/pass_edit" class="nav_link">パスワード変更</a></li>
           <li><a href="/erase" class="nav_link">ユーザー消去</a></li>
-          <li><a href="/user/{{ 1 }}/edit" class="nav_link">ユーザー編集</a></li>
-          <li><a href="/mypage" class="nav_link">マイページ</a></li>
+          <li><a href="/user/{{ 1 }}/edit" class="nav_link">プロフィール編集</a></li>
+          <li><a href="/mypage" class="nav_link">{{ Auth::user()->name }}</a></li>
           @endif
         </ul>
       </nav>
@@ -60,23 +61,23 @@
           <p class="font-weight-bold mb-2">Attendanceについて</p>
           <ul>
             <li><a href="#">出勤状況</a></li>
-            <li><a href="#">使い方</a></li>
+            <li><a href="/help">使い方</a></li>
           </ul>
         </div>
         <div class="col-md-2 operation">
           <p class="font-weight-bold mb-2">ユーザー操作一覧</p>
           <ul>
-            <li><a href="#">ユーザー登録</a></li>
-            <li><a href="#">ログイン</a></li>
-            <li><a href="#">マイページ</a></li>
-            <li><a href="#">ユーザー情報編集</a></li>
+            <li><a href="{{ route('register') }}">{{ __('Register') }}</a></li>
+            <li><a href="{{ route('login') }}">{{ __('Login') }}</a></li>
+            <li><a href="">マイページ</a></li>
+            <li><a href="">プロフィール編集</a></li>
           </ul>
         </div>
         <div class="col-md-2 operation">
           <p class="mb-2" style="height:24px"></p>
           <ul>
-            <li><a href="#">パスワード変更</a></li>
-            <li><a href="#">ユーザー消去</a></li>
+            <li><a href="">パスワード変更</a></li>
+            <li><a href="">ユーザー消去</a></li>
           </ul>
         </div>
       </div>
