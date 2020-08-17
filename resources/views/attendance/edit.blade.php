@@ -1,4 +1,4 @@
 @extends('layouts.template', ['target' => 'user'])
 @section('content')
-@include('attendance/form', ['target' => 'update'])
+@include('layouts.form', ['target' => 'update'])
 @endsection
