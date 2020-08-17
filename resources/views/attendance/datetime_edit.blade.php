@@ -1,4 +1,4 @@
-@extends('attendance/layout', ['target' => 'user'])
+@extends('layouts.template', ['target' => 'user'])
 @section('content')
     <!-- メインメニュー -->
     <div class="container-fluid padding" id="main">

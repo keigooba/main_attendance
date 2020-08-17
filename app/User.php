@@ -36,4 +36,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function go_records()
+    {
+        return $this->hasMany('App\Go_record');
+    }
+
+    public function leave_records()
+    {
+        return $this->hasMany('App\Leave_record');
+    }
+
 }

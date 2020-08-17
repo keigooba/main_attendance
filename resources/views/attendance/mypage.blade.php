@@ -1,4 +1,4 @@
-@extends('attendance/layout', ['target' => 'user'])
+@extends('layouts.template', ['target' => 'user'])
 @section('content')
 <!-- メインメニュー -->
 <h2 id="js-show-msg" class="msg-slide text-center" style="display: none;">

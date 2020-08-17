@@ -2,9 +2,11 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>Attendance</title>
   <!-- viewport meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- CSRF Token -->
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <title>{{ config('app.name', 'Attendance') }}</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <!-- タイトル用フォント -->
@@ -12,15 +14,14 @@
   <!-- フォントアイコン -->
   <script src="https://kit.fontawesome.com/c4d6181f75.js" crossorigin="anonymous"></script>
   <!-- style css -->
-  <link rel="stylesheet" href="{{asset('/assets/css/style.css')}}">
+  <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
-
   <!-- ヘッダー -->
   <header>
     <nav class="navbar navbar-light bg-lightblue fixed-top" id="header">
     <div class="container-fluid">
-      <a class="header_title" href="/user"><i class="fas fa-door-open"></i>Attendance</a>
+      <a class="header_title" href="{{ url('/') }}"><i class="fas fa-door-open"></i> {{ config('app.name', 'Attendance') }}</a>
       <!-- ハンバーガーメニュー -->
       <div id="js-nav-toggle">
         <div class="nav-toggle">
