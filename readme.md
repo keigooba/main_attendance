@@ -1,6 +1,5 @@
-# Name（リポジトリ/プロジェクト/OSSなどの名前）
+# Name
 
-分かりやすくてカッコイイ名前をつける（今回は"hoge"という名前をつける）
 "attendance" is a laravel application that records going to work and leaving work.
 
 # DEMO
@@ -14,54 +13,56 @@ All you have to do is press the user name and press going or leaving. You can op
 
 # Features
 
-I introduced docker, aws and circleci.
+I use docker, aws and circleci.
 
-Attendance used [main_attendance](https://github.com/kitao/main_attendance) only.
+Use AWS in the production environment and docker in the local environment. Also use circleci.
+
+Attendance used [main_attendance](https://github.com/keigooba/main_attendance) and docker.
 
 # Requirement
 
-"hoge"を動かすのに必要なライブラリなどを列挙する
-
 * laravel 7.24(latest)
 * PHP7.3-apache
-* mysql 
-* hogehuga 1.0.2
+* mysql5.7.29
 
 # Installation
 
-Requirementで列挙したライブラリなどのインストール方法を説明する
+![]https://qiita.com/sano1202/items/963c4677f14790863b67
+
+See above article.
 
 ```bash
-pip install huga_package
+composer create-project "laravel/laravel" main_attendance
 ```
 
 # Usage
 
-DEMOの実行方法など、"hoge"の基本的な使い方を説明する
+Create a file with an appropriate name and create a docker file and a main_attendance(https://github.com/keigooba/main_attendance) file.
 
 ```bash
-git clone https://github.com/hoge/~
-cd examples
-python demo.py
+docker-compose up --build -d
+docker exec -it main_attendance bash
+sh startup.sh
 ```
+
+This will run the migration and seeding and register the table and records.
 
 # Note
 
-注意点などがあれば書く
+In the production environment, please refer to the following article to create an instance.（Also set circleci）
+
+https://noumenon-th.net/programming/2020/05/02/circleci-laravel-ec2-deploy/
 
 # Author
 
-作成情報を列挙する
-
-* 作成者
-* 所属
-* E-mail
+keigooba
+Independent
+* Twitter : https://twitter.com/hx_kei
 
 # License
-ライセンスを明示する
 
-"hoge" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
+"atteandance" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
 
-社内向けなら社外秘であることを明示してる
+Let's enjoy the work with sharpness!
 
-"hoge" is Confidential.
+Thank you!
