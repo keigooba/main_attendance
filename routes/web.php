@@ -14,9 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'IndexController@index')->name('index');
 
 Route::post('/record', 'RecordController@postRecord');
+
+// Route::get('/user', 'UserController@index')->name('user');
 
 
 Route::get('/help', function() {

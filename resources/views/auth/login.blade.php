@@ -9,7 +9,7 @@
       <h1 class="font-weight-bold">{{ __('Login') }}</h1>
     </div>
     <!-- フォーム -->
-    <form action="{{ route('login') }}" method="post" class="form padding">
+    <form action="{{ route('login') }}" method="POST" class="form padding">
         @csrf
 
       <div class="col-12">
@@ -27,7 +27,7 @@
 
         <label class="text_area">
           <p>{{ __('Password') }}</p>
-          <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="※半角英数字４文字以上" required autocomplete="current-password">
+          <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="※半角英数字8文字以上" required autocomplete="current-password">
 
           @error('password')
               <span class="invalid-feedback" role="alert">

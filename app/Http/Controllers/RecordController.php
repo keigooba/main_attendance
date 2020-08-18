@@ -3,15 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+// use App\Http\Requests\PostRecord;
 use App\Gorecord;
 use App\Leaverecord;
 use Carbon\Carbon;
 
 class RecordController extends Controller
 {
-  public function postRecord(Request $request){
+  public function postRecord(request $request){
 
     if ($request->input('go')){
+
+      if($request->id == null){
+
+        $record = ['ユーザー名を選択して下さい'];
+
+        return redirect()->route('index')->withInput($record);
+      }
 
       $record = ['出勤しました'];
 
@@ -24,9 +32,16 @@ class RecordController extends Controller
       // インスタンスの状態をデータベースに書き込む
       $gorecord->save();
 
-      return redirect()->route('home')->withInput($record);
+      return redirect()->route('index')->withInput($record);
 
     }elseif ($request->input('leave')){
+
+      if($request->id == null){
+
+        $record = ['ユーザー名を選択して下さい'];
+
+        return redirect()->route('index')->withInput($record);
+      }
 
       $record = ['退勤しました'];
 
@@ -39,7 +54,7 @@ class RecordController extends Controller
       // インスタンスの状態をデータベースに書き込む
       $Leaverecord->save();
 
-      return redirect()->route('home')->withInput($record);
+      return redirect()->route('index')->withInput($record);
       }
   }
 
