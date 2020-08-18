@@ -10,7 +10,7 @@
     </div>
 
     <!-- フォーム -->
-    <form action="{{ route('register') }}" method="post" class="form padding">
+    <form action="{{ route('register') }}" method="POST" class="form padding">
       @csrf
 
       <div class="col-12">

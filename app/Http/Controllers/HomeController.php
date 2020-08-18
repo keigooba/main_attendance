@@ -17,7 +17,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        // $this->middleware('auth');
+        $this->middleware('auth');
     }
 
     /**
@@ -25,23 +25,9 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index(Request $request)
+    public function index()
     {
-        // 登録ユーザーを取得する
-        $users = User::all();
+      
 
-        $record = $request->old();
-
-        if($record == null)
-        {
-          $record = [''];
-        }
-
-
-
-        return view('home',[
-            'users' => $users,
-            'record' => $record,
-        ]);
     }
 }

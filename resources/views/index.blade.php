@@ -2,9 +2,9 @@
 
 @section('content')
 <!-- メインメニュー -->
-<h2 id="js-show-msg" class="msg-slide text-center" style="display: none;">
+<h1 id="js-show-msg" class="msg-slide text-center font-weight-bold" style="display: none;">
 {{ $record[0] }}
-</h2>
+</h1>
 <div class="container-fluid padding" id="main">
 <form action="/record" method="post">
   @csrf
@@ -18,14 +18,14 @@
     </div>
 
     <div class="col-12 mb-4 situation_btn">
-      <button type="button" class="btn btn-light font-medium"><a href="/situation">出退勤状況</a></button>
+      <button type="button" class="btn btn-light btn-outline-dark font-medium"><a href="/situation">出退勤状況</a></button>
     </div>
 
     <!-- ユーザー選択 -->
     <div class="col-md-8 user_btn js-scroll-bottom">
-      <p class="lead mb-2">ユーザーを選択して下さい</p>
+      <p class="lead mb-3">ユーザーを選択して下さい</p>
       @foreach($users as $user)
-      <label class="btn btn-warning font-small mb-2">
+      <label class="btn btn-warning font-medium mb-2">
         <input type="radio" name="id" value="{{ $user->id }}" style="display:none;">{{ $user->name }}
       </label>
       @endforeach
