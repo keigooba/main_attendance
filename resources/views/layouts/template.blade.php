@@ -21,7 +21,7 @@
   <header>
     <nav class="navbar navbar-light bg-lightblue fixed-top" id="header">
     <div class="container-fluid">
-      <a class="header_title" href="{{ url('/') }}"><i class="fas fa-door-open"></i> {{ config('app.name', 'Attendance') }}</a>
+      <a class="header_title" href="{{ route('home') }}"><i class="fas fa-door-open"></i> {{ config('app.name', 'Attendance') }}</a>
       <!-- ハンバーガーメニュー -->
       <div id="js-nav-toggle">
         <div class="nav-toggle">
@@ -32,18 +32,18 @@
       </div>
       <nav class="header_nav font-medium">
         <ul id="nav-toggle-2">
-          @if($target == 'default')
+        @guest
           <li><a href="/help" class="nav_link">使い方</a></li>
           <li><a href="{{ route('register') }}" class="nav_link">{{ __('Register') }}</a></li>
           <li><a href="{{ route('login') }}" class="nav_link">{{ __('Login') }}</a></li>
-          @elseif($target == 'user')
+        @else
           <li><a href="{{ route('logout') }}" class="nav_link">{{ __('Logout') }}</a>
           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form></li>
           <li><a href="/pass_edit" class="nav_link">パスワード変更</a></li>
           <li><a href="/erase" class="nav_link">ユーザー消去</a></li>
           <li><a href="/user/{{ 1 }}/edit" class="nav_link">プロフィール編集</a></li>
           <li><a href="/mypage" class="nav_link">{{ Auth::user()->name }}</a></li>
-          @endif
+        @endguest
         </ul>
       </nav>
     </div>

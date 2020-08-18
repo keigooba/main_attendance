@@ -8,7 +8,7 @@
     <div class="col-12 text-center padding">
       <h1 class="font-weight-bold">{{ __('Register') }}</h1>
     </div>
-    
+
     <!-- フォーム -->
     <form action="{{ route('register') }}" method="post" class="form padding">
       @csrf
@@ -49,7 +49,7 @@
         </label>
 
         <label class="text_area">
-          <p>{{ __('Confirm Password') }</p>
+          <p>{{ __('Confirm Password') }}</p>
           <input type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
         </label>
 

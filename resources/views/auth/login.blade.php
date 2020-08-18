@@ -37,21 +37,17 @@
         </label>
 
         <label class="text_area">
-          <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+          @if (Route::has('password.request'))
+            <a class="font-weight-bold text-primary" href="{{ route('password.request') }}">
+                {{ __('Forgot Your Password?') }}
+            </a>
+          @endif
+        </label>
 
-          <label class="form-check-label" for="remember">
-              {{ __('Remember Me') }}
-          </label>
-        </div>
 
         <input type="submit" name="submit" class="btn btn-warning" value="簡易{{ __('Login') }}" style="float:left;">
         <input type="submit" name="submit" class="btn btn-dark" value="{{ __('Login') }}" style="border-radius:initial">
 
-        @if (Route::has('password.request'))
-          <a class="btn btn-link" href="{{ route('password.request') }}">
-              {{ __('Forgot Your Password?') }}
-          </a>
-        @endif
       </div>
     </form>
   </div>

@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use App\Gorecord;
+use App\Leaverecord;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -21,8 +25,23 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('home');
+        // 登録ユーザーを取得する
+        $users = User::all();
+
+        $record = $request->old();
+
+        if($record == null)
+        {
+          $record = [''];
+        }
+
+
+
+        return view('home',[
+            'users' => $users,
+            'record' => $record,
+        ]);
     }
 }
