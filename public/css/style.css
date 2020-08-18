@@ -101,7 +101,7 @@ li {
   height: 435px;
   overflow-y: scroll;
 }
-.user_btn button[type="radio"] {
+.user_btn label{
   width: 49%;
   height: 50px;
 }

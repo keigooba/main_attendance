@@ -43,14 +43,14 @@ class User extends Authenticatable
         $this->notify(new CustomResetPassword($token));
     }
 
-    public function go_records()
+    public function gorecords()
     {
-        return $this->hasMany('App\Go_record');
+        return $this->hasMany('App\Gorecord');
     }
 
-    public function leave_records()
+    public function leaverecords()
     {
-        return $this->hasMany('App\Leave_record');
+        return $this->hasMany('App\Leaverecord');
     }
 
 

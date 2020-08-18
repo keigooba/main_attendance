@@ -1,4 +1,9 @@
 {
   "Login": "ログイン",
-  "Register":"ユーザー登録"
+  "Register": "ユーザー登録",
+  "Name": "名前",
+  "E-Mail Address": "メールアドレス",
+  "Password": "パスワード",
+  "Confirm Password": "パスワード再入力",
+  "Forgot Your Password?": "パスワードをお忘れですか？"
 }
