@@ -16,8 +16,8 @@ class CreateGorecordsTable extends Migration
         Schema::create('gorecords', function (Blueprint $table) {
           $table->increments('id');
           $table->string('user_name');
-          $table->date('go_date');
-          $table->time('go_time');
+          $table->date('record_date');
+          $table->time('record_time');
           $table->timestamps();
         });
 
