@@ -26,6 +26,21 @@ ul {
 li {
   list-style:none;
 }
+table {
+  font-size: 2rem;
+}
+table th,
+table td {
+  padding: 15px;
+}
+thead {
+  display: block;
+}
+tbody {
+  display: block;
+  overflow-y : scroll;
+  height: 500px;
+}
 .btn {
   border-radius: 80px;
   font-weight: bold;
@@ -42,9 +57,6 @@ li {
 .font-medium {
   font-size: 3rem;
 }
-/* .font-default {
-  font-size: 2rem;
-} */
 .font-small {
   font-size: 1.5rem;
 }
@@ -152,32 +164,15 @@ li {
 }
 .situation_table {
   width: 55%;
-  font-size: 2rem;
   margin: 1rem auto;
-}
-table th,
-table td {
-  padding: 15px;
-}
-thead {
-  display: block;
-}
-tbody {
-  display: block;
-  overflow-y : scroll;
-  height: 500px;
 }
 .id {
   min-width: 75px;
 }
-.date {
-  min-width: 220px;
-}
-.time {
-  min-width: 165px;
-}
+.date ,
+.time,
 .command {
-  min-width: 162px;
+  min-width: 165px;
 }
 .user {
   min-width: 270px;
@@ -214,13 +209,8 @@ input[type="password"] {
 
 /* セレクトボックス */
 .select_box {
-  width: 20%;
+  width: 100%;
   height: 50px;
-}
-.select_text {
-  width: 29%;
-  margin: 0 auto !important;
-  text-align: initial;
 }
 
 /* 編集・削除 */
@@ -387,14 +377,6 @@ input[type="password"] {
   /* テーブル余白 */
   .table_container {
     margin-top: 1rem;
-  }
-
-  /* セレクトボックス */
-  .select_box {
-    width: 60%;
-  }
-  .select_text {
-    width: 85%;
   }
 
   /* 検索フォーム */
