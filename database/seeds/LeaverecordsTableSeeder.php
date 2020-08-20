@@ -17,8 +17,10 @@ class LeaverecordsTableSeeder extends Seeder
 
       DB::table('leaverecords')->insert([
         'user_name' => $user->name,
-        'leave_date' => Carbon::now(),
-        'leave_time' => Carbon::now(),
+        'record_date' => Carbon::now(),
+        'record_time' => Carbon::now(),
+        'created_at' => Carbon::now(),
+        'updated_at' => Carbon::now(),
       ]);
     }
 }

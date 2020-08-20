@@ -16,8 +16,8 @@ class CreateLeaverecordsTable extends Migration
         Schema::create('leaverecords', function (Blueprint $table) {
           $table->increments('id');
           $table->string('user_name');
-          $table->date('leave_date');
-          $table->time('leave_time');
+          $table->date('record_date');
+          $table->time('record_time');
           $table->timestamps();
         });
     }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\DateRecord;
+use App\Http\Requests\UserRecord;
 use App\User;
 use App\Gorecord;
 use App\Leaverecord;
@@ -14,19 +15,19 @@ class RecordController extends Controller
   public function index(Request $request)
   {
       // #js-show-msgの情報を受け取る
-      $record = $request->old();
+      $message = $request->old();
 
       // msgがないなら空にして定義する
-      if($record == null)
+      if($message == null)
       {
-        $record = [''];
+        $message = [''];
       }
 
       // 登録ユーザーを全て取得する
       $users = User::all();
 
       return view('record/index',[
-          'record' => $record,
+          'message' => $message,
           'users' => $users,
       ]);
   }
@@ -37,45 +38,45 @@ class RecordController extends Controller
 
       if($request->name == null){
 
-        $record = ['ユーザー名を選択して下さい'];
+        $message = ['ユーザー名を選択して下さい'];
 
-        return redirect()->route('record')->withInput($record);
+        return redirect()->route('record')->withInput($message);
       }
 
-      $record = ['出勤しました'];
+      $message = ['出勤しました'];
 
       // Gorecordモデルのインスタンスを作成する
       $gorecord = new Gorecord();
       // 送信されたユーザー情報を代入する
       $gorecord->user_name = $request->name;
-      $gorecord->go_date = Carbon::now();
-      $gorecord->go_time = Carbon::now();
+      $gorecord->record_date = Carbon::now();
+      $gorecord->record_time = Carbon::now();
       // インスタンスの状態をデータベースに書き込む
       $gorecord->save();
 
-      return redirect()->route('record')->withInput($record);
+      return redirect()->route('record')->withInput($message);
 
     }elseif ($request->input('leave')){
 
       if($request->name == null){
 
-        $record = ['ユーザー名を選択して下さい'];
+        $message = ['ユーザー名を選択して下さい'];
 
-        return redirect()->route('record')->withInput($record);
+        return redirect()->route('record')->withInput($message);
       }
 
-      $record = ['退勤しました'];
+      $message = ['退勤しました'];
 
       // Leaverecordモデルのインスタンスを作成する
       $Leaverecord = new Leaverecord();
       // 送信されたユーザー情報を代入する
       $Leaverecord->user_name = $request->name;
-      $Leaverecord->leave_date = Carbon::now();
-      $Leaverecord->leave_time = Carbon::now();
+      $Leaverecord->record_date = Carbon::now();
+      $Leaverecord->record_time = Carbon::now();
       // インスタンスの状態をデータベースに書き込む
       $Leaverecord->save();
 
-      return redirect()->route('record')->withInput($record);
+      return redirect()->route('record')->withInput($message);
     }
   }
 
@@ -87,10 +88,10 @@ class RecordController extends Controller
     $date = date("Y/m/d");
 
     // 今日の出勤記録を全て取得する
-    $gorecords = Gorecord::whereDate('go_date',$today)->get();
+    $gorecords = Gorecord::whereDate('record_date',$today)->get();
 
     // 今日の退勤記録を全て取得する
-    $leaverecords = Leaverecord::whereDate('leave_date',$today)->get();
+    $leaverecords = Leaverecord::whereDate('record_date',$today)->get();
 
     return view('record/situation',[
       'date' => $date,
@@ -99,16 +100,39 @@ class RecordController extends Controller
     ]);
   }
 
-  public function situationdate(DateRecord $request)
+  public function date(DateRecord $request)
   {
       // 指定された日付の出勤記録を全て取得する
-      $gorecords = Gorecord::whereDate('go_date',$request->date)->get();
+      $gorecords = Gorecord::whereDate('record_date',$request->date)->get();
 
       // 指定された日付の退勤記録を全て取得する
-      $leaverecords = Leaverecord::whereDate('leave_date',$request->date)->get();
+      $leaverecords = Leaverecord::whereDate('record_date',$request->date)->get();
 
       return view('record/situation',[
         'date' => $request->date,
+        'gorecords' => $gorecords,
+        'leaverecords' => $leaverecords,
+      ]);
+  }
+
+  public function user(UserRecord $request)
+  {
+      $message = ['検索しました'];
+
+      $users = User::all();
+
+      // 指定されたユーザー情報を取得する
+      $current_user = User::find($request->id);
+
+      // 指定されたユーザーの出勤記録を全て取得する
+      $gorecords = $current_user->gorecords()->get();
+
+      // 指定されたユーザーの退勤記録を全て取得する
+      $leaverecords = $current_user->leaverecords()->get();
+
+      return view('auth/index',[
+        'message' => $message,
+        'users' => $users,
         'gorecords' => $gorecords,
         'leaverecords' => $leaverecords,
       ]);

@@ -40,23 +40,23 @@ class DatabaseTest extends TestCase
 
         $gorecord = new Gorecord();
         $gorecord->user_name = '山田太郎';
-        $gorecord->go_date = Carbon::now();
-        $gorecord->go_time = Carbon::now();
+        $gorecord->record_date = Carbon::now();
+        $gorecord->record_time = Carbon::now();
         $saveGorecord = $gorecord->save();
 
         $gorecord = [
-            'go_date' =>  Carbon::now()->toDateString(),
+            'record_date' =>  Carbon::now()->toDateString(),
         ];
         $this->assertDatabaseHas('gorecords', $gorecord);
 
         $leaverecord = new Leaverecord();
         $leaverecord->user_name = '山田太郎';
-        $leaverecord->leave_date = Carbon::now();
-        $leaverecord->leave_time = Carbon::now();
+        $leaverecord->record_date = Carbon::now();
+        $leaverecord->record_time = Carbon::now();
         $saveLeaverecord = $leaverecord->save();
 
         $leaverecord = [
-            'leave_date' =>  Carbon::now()->toDateString(),
+            'record_date' =>  Carbon::now()->toDateString(),
         ];
         $this->assertDatabaseHas('leaverecords', $leaverecord);
     }

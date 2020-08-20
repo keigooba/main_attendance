@@ -17,10 +17,10 @@ class GorecordsTableSeeder extends Seeder
 
       DB::table('gorecords')->insert([
         'user_name' => $user->name,
-        'go_date' => Carbon::now(),
-        'go_time' => Carbon::now(),
+        'record_date' => Carbon::now(),
+        'record_time' => Carbon::now(),
+        'created_at' => Carbon::now(),
+        'updated_at' => Carbon::now(),
       ]);
-
-
     }
 }

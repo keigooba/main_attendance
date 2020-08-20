@@ -9,24 +9,33 @@
   <title>{{ config('app.name', 'Attendance') }}</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <!-- デフォルトのスタイルシート -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <!-- タイトル用フォント -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
   <!-- フォントアイコン -->
   <script src="https://kit.fontawesome.com/c4d6181f75.js" crossorigin="anonymous"></script>
   <!-- style css -->
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+  <!-- デフォルトのスタイルシート -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <!-- ブルーテーマの追加スタイルシート -->
   <link rel="stylesheet" href="https://npmcdn.com/flatpickr/dist/themes/material_blue.css">
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 </head>
-
 <body>
   <!-- ヘッダー -->
   <header>
     <nav class="navbar navbar-light bg-lightblue fixed-top font-medium font-weight-bold" id="header">
     <div class="container-fluid">
-      <a class="header_title " href="/"><i class="fas fa-door-open"></i> {{ config('app.name', 'Attendance') }}</a>
+    @guest
+      <a class="header_title " href="/">
+    @else
+      <a class="header_title " href="/user">
+    @endguest
+        <i class="fas fa-door-open"></i>
+        {{ config('app.name', 'Attendance') }}
+      </a>
+
       <!-- ハンバーガーメニュー -->
       <div id="js-nav-toggle">
         <div class="nav-toggle">
@@ -38,22 +47,21 @@
       <nav class="header_nav">
         <ul id="nav-toggle-2">
         @guest
-          <li><a href="/record/help" class="nav_link">使い方</a></li>
+          <li><a href="/help" class="nav_link">使い方</a></li>
           <li><a href="{{ route('register') }}" class="nav_link">{{ __('Register') }}</a></li>
           <li><a href="{{ route('login') }}" class="nav_link">{{ __('Login') }}</a></li>
         @else
           <li>
             <a class="nav_link" href="{{ route('logout') }}"
               onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">
+              document.getElementById('logout-form').submit();">
               {{ __('Logout') }}
             </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
           </li>
-          <li><a href="/pass_edit" class="nav_link">パスワード変更</a></li>
-          <li><a href="/erase" class="nav_link">ユーザー消去</a></li>
-          <li><a href="/user/{{ Auth::user()->id }}/edit" class="nav_link">プロフィール編集</a></li>
-          <li><a href="/user" class="nav_link">{{ Auth::user()->name }}</a></li>
+          <li><a href="/user/{{ Auth::user()->id }}" class="nav_link">ユーザー消去</a></li>
+          <li><a href="/user/{{ Auth::user()->id }}/edit" class="nav_link">ユーザー編集</a></li>
+          <li><a href="/user" class="nav_link">{{ Auth::user()->name }}さん</a></li>
         @endguest
         </ul>
       </nav>
@@ -102,17 +110,13 @@
       </div>
     </div>
   </footer>
+
   <!-- flatpickrスクリプト -->
   <script src="https://npmcdn.com/flatpickr/dist/flatpickr.min.js"></script>
   <!-- 日本語化のための追加スクリプト -->
   <script src="https://npmcdn.com/flatpickr/dist/l10n/ja.js"></script>
 
-  <!-- 自作Scripts -->
-  <script src="{{ asset('js/template.js') }}" defer></script>
+  <!-- テンプレートScripts -->
+  <script src="{{ asset('js/template.js') }}"></script>
 
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-
-  <!-- 導入Scripts -->
-  <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
 </body>
