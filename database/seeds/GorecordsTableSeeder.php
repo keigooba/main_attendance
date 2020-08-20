@@ -16,11 +16,9 @@ class GorecordsTableSeeder extends Seeder
       $user = DB::table('users')->first();
 
       DB::table('gorecords')->insert([
-        'user_id' => $user->id,
+        'user_name' => $user->name,
         'go_date' => Carbon::now(),
         'go_time' => Carbon::now(),
-        'created_at' => Carbon::now(),
-        'updated_at' => Carbon::now(),
       ]);
 
 

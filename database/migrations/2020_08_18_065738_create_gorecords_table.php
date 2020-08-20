@@ -15,13 +15,10 @@ class CreateGorecordsTable extends Migration
     {
         Schema::create('gorecords', function (Blueprint $table) {
           $table->increments('id');
-          $table->integer('user_id')->unsigned();
+          $table->string('user_name');
           $table->date('go_date');
           $table->time('go_time');
           $table->timestamps();
-
-           // 外部キーを設定する
-          // $table->foreign('user_id')->references('id')->on('users');
         });
 
 

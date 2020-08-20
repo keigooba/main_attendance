@@ -3,9 +3,11 @@
 namespace Tests\Feature\Database;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
-use App\Book;
+use App\Gorecord;
+use App\Leaverecord;
+use App\User;
+use Carbon\Carbon;
 
 class DatabaseTest extends TestCase
 {
@@ -25,15 +27,38 @@ class DatabaseTest extends TestCase
 
     public function testDatabase()
     {
-        $book = new Book();
-        $book->title = 'hoge';
-        $book->author = 'tarou';
-        $saveBook = $book->save();
+        $user = new User();
+        $user->name = '山田太郎';
+        $user->email = 'tarou';
+        $user->password = bcrypt('test1234');
+        $saveUser = $user->save();
 
-        $book = [
-            'title' => 'hoge',
+        $user = [
+            'name' => '山田太郎',
         ];
-        $this->assertDatabaseHas('books', $book);
+        $this->assertDatabaseHas('users', $user);
+
+        $gorecord = new Gorecord();
+        $gorecord->user_name = '山田太郎';
+        $gorecord->go_date = Carbon::now();
+        $gorecord->go_time = Carbon::now();
+        $saveGorecord = $gorecord->save();
+
+        $gorecord = [
+            'go_date' =>  Carbon::now()->toDateString(),
+        ];
+        $this->assertDatabaseHas('gorecords', $gorecord);
+
+        $leaverecord = new Leaverecord();
+        $leaverecord->user_name = '山田太郎';
+        $leaverecord->leave_date = Carbon::now();
+        $leaverecord->leave_time = Carbon::now();
+        $saveLeaverecord = $leaverecord->save();
+
+        $leaverecord = [
+            'leave_date' =>  Carbon::now()->toDateString(),
+        ];
+        $this->assertDatabaseHas('leaverecords', $leaverecord);
     }
-    
+
 }

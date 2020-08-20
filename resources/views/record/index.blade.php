@@ -18,7 +18,7 @@
     </div>
 
     <div class="col-12 mb-4 situation_btn">
-      <button type="button" class="btn btn-light btn-outline-dark font-medium"><a href="/situation">出退勤状況</a></button>
+      <button type="button" class="btn btn-light btn-outline-dark font-medium"><a href="{{ route('situation') }}">出退勤状況</a></button>
     </div>
 
     <!-- ユーザー選択 -->
@@ -26,7 +26,7 @@
       <p class="lead mb-3">ユーザーを選択して下さい</p>
       @foreach($users as $user)
       <label class="btn btn-warning font-medium mb-2">
-        <input type="radio" name="id" value="{{ $user->id }}" style="display:none;">{{ $user->name }}
+        <input type="radio" name="name" value="{{ $user->name }}" style="display:none;">{{ $user->name }}
       </label>
       @endforeach
     </div>

@@ -15,13 +15,10 @@ class CreateLeaverecordsTable extends Migration
     {
         Schema::create('leaverecords', function (Blueprint $table) {
           $table->increments('id');
-          $table->integer('user_id')->unsigned();
+          $table->string('user_name');
           $table->date('leave_date');
           $table->time('leave_time');
           $table->timestamps();
-
-          // 外部キーを設定する
-          // $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

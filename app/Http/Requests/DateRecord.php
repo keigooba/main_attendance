@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PostRecord extends FormRequest
+class DateRecord extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,21 @@ class PostRecord extends FormRequest
     public function rules()
     {
         return [
-            'id' => 'required' ,
+            'date' => 'required|date|after_or_equal:today',
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'date' => '日付',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'date.after_or_equal' => ':attribute には今日以降の日付を入力してください。',
         ];
     }
 }

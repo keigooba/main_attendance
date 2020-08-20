@@ -1,4 +1,4 @@
-@extends('layouts.template', ['target' => 'default'])
+@extends('layouts.template')
 @section('content')
     <!-- メインメニュー -->
     <div class="container-fluid padding" id="main">
