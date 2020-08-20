@@ -4,7 +4,6 @@ use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-
 class LeaverecordsTableSeeder extends Seeder
 {
     /**
@@ -17,11 +16,9 @@ class LeaverecordsTableSeeder extends Seeder
       $user = DB::table('users')->first();
 
       DB::table('leaverecords')->insert([
-        'user_id' => $user->id,
+        'user_name' => $user->name,
         'leave_date' => Carbon::now(),
         'leave_time' => Carbon::now(),
-        'created_at' => Carbon::now(),
-        'updated_at' => Carbon::now(),
       ]);
     }
 }

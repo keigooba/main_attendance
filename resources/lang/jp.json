@@ -5,5 +5,7 @@
   "E-Mail Address": "メールアドレス",
   "Password": "パスワード",
   "Confirm Password": "パスワード再入力",
-  "Forgot Your Password?": "パスワードをお忘れですか？"
+  "Forgot Your Password?": "パスワードをお忘れですか？",
+  "Logout": "ログアウト",
+  "Destory": "削除"
 }

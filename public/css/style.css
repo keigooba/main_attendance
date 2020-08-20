@@ -42,6 +42,9 @@ li {
 .font-medium {
   font-size: 3rem;
 }
+/* .font-default {
+  font-size: 2rem;
+} */
 .font-small {
   font-size: 1.5rem;
 }
@@ -93,6 +96,9 @@ li {
   height: 100px;
 }
 
+.situation_btn button[type="button"] a {
+  display: block;
+}
 /* ユーザー選択ボタン */
 .user_btn {
   height: 435px;
@@ -107,8 +113,12 @@ li {
 .search input[type="submit"] {
   height: 45px;
   border-radius: initial;
+  margin-bottom: 10px;
 }
 
+.table_container input[type="text"] {
+  width: 220px;
+}
 /* ログ */
 .log_container {
   width: 100%;
@@ -142,6 +152,7 @@ li {
 }
 .situation_table {
   width: 55%;
+  font-size: 2rem;
   margin: 1rem auto;
 }
 table th,
@@ -163,13 +174,13 @@ tbody {
   min-width: 220px;
 }
 .time {
-  min-width: 160px;
+  min-width: 165px;
 }
 .command {
-  min-width: 120px;
+  min-width: 162px;
 }
 .user {
-  min-width: 191px;
+  min-width: 270px;
 }
 
 /* フォーム */

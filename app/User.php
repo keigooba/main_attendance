@@ -45,12 +45,12 @@ class User extends Authenticatable
 
     public function gorecords()
     {
-        return $this->hasMany('App\Gorecord');
+        return $this->hasMany('App\Gorecord','user_name','name');
     }
 
     public function leaverecords()
     {
-        return $this->hasMany('App\Leaverecord');
+        return $this->hasMany('App\Leaverecord','user_name','name');
     }
 
 

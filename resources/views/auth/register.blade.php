@@ -17,7 +17,7 @@
 
         <label class="text_area">
           <p>{{ __('Name') }}</p>
-          <input type="text" name="name" class="form-control   @error('name') is-invalid @enderror" value="{{ old('name') }}" placeholder="漢字入力" required autocomplete="name" autofocus>
+          <input type="text" name="name" class="form-control   @error('name') is-invalid @enderror" value="{{ old('name') }}" placeholder="" required autocomplete="name" autofocus>
 
           @error('name')
             <span class="invalid-feedback" role="alert">
@@ -39,7 +39,7 @@
 
         <label class="text_area">
           <p>{{ __('Password') }}</p>
-          <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="※半角英数字４文字以上" required autocomplete="new-password">
+          <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="※4文字以上" required autocomplete="new-password">
 
           @error('password')
               <span class="invalid-feedback" role="alert">
