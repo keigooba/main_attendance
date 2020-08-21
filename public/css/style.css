@@ -64,7 +64,19 @@ tbody {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 }
-
+/* ボタンタグを押したときの枠線を消す */
+button:focus {
+	outline:0;
+}
+/* ボタンのcssを消す */
+.clear-decoration {
+  border: none;  /* 枠線を消す */
+  outline: none; /* クリックしたときに表示される枠線を消す */
+  background: transparent; /* 背景の灰色を消す */
+}
+.invalid-feedback {
+  display:block;
+}
 /* ヘッダー・メインメニュー・フッタ-・copyrightの高さ */
 #header {
   height: 85px;

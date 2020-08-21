@@ -33,11 +33,11 @@ Auth::routes();
 // マイページ・ユーザー編集ページ・ユーザー消去ページ
 Route::resource('user','UserController');
 Route::post('/user/record', 'RecordController@user');
-Route::post('/user/gorecord/{gorecord}', 'GorecordController@destroy');
-Route::post('/user/leaverecord/{leaverecord}', 'LeaverecordController@destroy');
+Route::delete('/user/gorecord/{gorecord}', 'GorecordController@user_destroy');
+Route::delete('/user/leaverecord/{leaverecord}', 'LeaverecordController@user_destroy');
 
 // 出退勤編集ページ
-Route::get('/user/gorecord/{gorecord}/edit', 'GorecordController@edit');
-Route::get('/user/leaverecord/{leaverecord}/edit', 'LeaverecordController@edit');
-Route::put('/user/gorecord/{gorecord}', 'GorecordController@update');
-Route::put('/user/leaverecord/{leaverecord}', 'LeaverecordController@update');
+Route::get('/user/gorecord/{gorecord}/edit', 'GorecordController@user_edit');
+Route::get('/user/leaverecord/{leaverecord}/edit', 'LeaverecordController@user_edit');
+Route::put('/user/gorecord/{gorecord}', 'GorecordController@user_update');
+Route::put('/user/leaverecord/{leaverecord}', 'LeaverecordController@user_update');

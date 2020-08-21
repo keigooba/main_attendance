@@ -3,42 +3,51 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\UserUpdateLeaverecord;
 use App\Leaverecord;
 
 class LeaverecordController extends Controller
 {
-  public function edit(Leaverecord $leaverecord)
+  public function destroy(Leaverecord $leaverecord)
+  {
+      $message = ['削除しました'];
+
+      $leaverecord->delete();
+
+      return redirect()->route('situation')->withInput($message);
+  }
+
+  public function user_edit(Leaverecord $leaverecord)
   {
       $motion = ['退勤','leaverecord'];
 
-      // 退勤IDに紐づくデータを取得する
-      // $record = Leaverecord::findOrFail($id);
-
+      // 編集画面は出勤レコードと共通なので、変数はrecordで渡す
       return view('auth/record_edit',[
         'motion' => $motion,
-        'record' => $record,
+        'record' => $leaverecord,
       ]);
   }
 
-  public function update(Request $request)
+  public function user_update(Leaverecord $leaverecord, UserUpdateLeaverecord $request)
   {
-      // 退勤IDに紐づくデータを取得する
-      // $leaverecord = Leaverecord::findOrFail($request->id);
+      $message = ['変更しました'];
 
       $leaverecord->user_name = $request->name;
       $leaverecord->record_date = $request->date;
       $leaverecord->record_time = $request->time;
       $leaverecord->save();
 
-      return redirect("/user");
+      return redirect("/user")->withInput($message);
   }
 
-  public function destroy(Leaverecord $leaverecord)
+  public function user_destroy(Leaverecord $leaverecord)
   {
+
+      $message = ['削除しました'];
 
       $leaverecord->delete();
 
-      return redirect()->route('situation');
+      return redirect('/user')->withInput($message);
   }
 
 }
