@@ -9,6 +9,7 @@ use App\User;
 use App\Gorecord;
 use App\Leaverecord;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class RecordController extends Controller
 {
@@ -127,6 +128,13 @@ class RecordController extends Controller
 
   public function user(UserRecord $request)
   {
+      if($request->admin != 1){
+
+        $message = ['管理者しか使えません'];
+
+        return redirect('/user')->withInput($message);
+      }
+
       $message = ['検索しました'];
 
       $users = User::all();
@@ -146,5 +154,16 @@ class RecordController extends Controller
         'gorecords' => $gorecords,
         'leaverecords' => $leaverecords,
       ]);
+  }
+
+  public function simple()
+  {
+      // $user = User::find(1);
+      // Auth::login($user,true);
+
+      // 認証処理をパスしてログイン
+      Auth::loginUsingId(1, true);
+
+      return redirect('/user');
   }
 }

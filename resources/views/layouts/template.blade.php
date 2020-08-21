@@ -47,6 +47,7 @@
       <nav class="header_nav">
         <ul id="nav-toggle-2">
         @guest
+          <li><a href="/simple" class="nav_link btn-warning text-success">簡易ログイン</a></li>
           <li><a href="/help" class="nav_link">使い方</a></li>
           <li><a href="{{ route('register') }}" class="nav_link">{{ __('Register') }}</a></li>
           <li><a href="{{ route('login') }}" class="nav_link">{{ __('Login') }}</a></li>

@@ -44,10 +44,7 @@
           @endif
         </label>
 
-
-        <input type="submit" name="submit" class="btn btn-warning" value="簡易{{ __('Login') }}" style="float:left;">
         <input type="submit" name="submit" class="btn btn-dark" value="{{ __('Login') }}" style="border-radius:initial">
-
       </div>
     </form>
   </div>

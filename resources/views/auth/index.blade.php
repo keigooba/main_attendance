@@ -18,6 +18,7 @@
           @endforeach
         </select>
       </label>
+      <input type="hidden" name="admin" value="{{ Auth::user()->id }}">
       <input type="submit" class="btn btn-dark ml-4" value="検索">
     </form>
   </div>
@@ -44,6 +45,7 @@
               <form action="user/gorecord/{{ $gorecord->id }}" method="post">
                 <input type="hidden" name="_method" value="DELETE">
                 @csrf
+                <input type="hidden" name="admin" value="{{ Auth::user()->id }}">
                 <button type="submit" class="clear-decoration"><a class="delete text-danger">{{ __('Destory') }}</a></button>
               </form>
             </td>
@@ -76,6 +78,7 @@
               <form action="user/leaverecord/{{ $leaverecord->id }}" method="post">
                 <input type="hidden" name="_method" value="DELETE">
                 @csrf
+                <input type="hidden" name="admin" value="{{ Auth::user()->id }}">
                 <button type="submit" class="clear-decoration"><a class="delete text-danger">{{ __('Destory') }}</a></button>
               </form>
             </td>

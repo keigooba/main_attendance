@@ -132,7 +132,9 @@ button:focus {
   width: 33%;
   line-height: 80px;
 }
-
+.radio.active {
+  opacity:0.6;
+}
 /* 検索ボタン */
 .search input[type="submit"] {
   height: 45px;
