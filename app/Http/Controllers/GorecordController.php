@@ -30,6 +30,14 @@ class GorecordController extends Controller
 
   public function user_update(Gorecord $gorecord, UserUpdateGorecord $request)
   {
+      if($request->admin != 1){
+
+      $message = ['管理者しか使えません'];
+
+      return redirect('/user')->withInput($message);
+
+      }
+
       $message = ['変更しました'];
 
       $gorecord->user_name = $request->name;
@@ -40,8 +48,15 @@ class GorecordController extends Controller
       return redirect("/user")->withInput($message);
   }
 
-  public function user_destroy(Gorecord $gorecord)
+  public function user_destroy(Gorecord $gorecord, Request $request)
   {
+      if($request->admin != 1){
+
+      $message = ['管理者しか使えません'];
+
+      return redirect('/user')->withInput($message);
+      }
+
       $message = ['削除しました'];
 
       $gorecord->delete();

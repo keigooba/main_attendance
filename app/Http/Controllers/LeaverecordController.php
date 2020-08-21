@@ -30,6 +30,13 @@ class LeaverecordController extends Controller
 
   public function user_update(Leaverecord $leaverecord, UserUpdateLeaverecord $request)
   {
+      if($request->admin != 1){
+
+      $message = ['管理者しか使えません'];
+
+      return redirect('/user')->withInput($message);
+      }
+
       $message = ['変更しました'];
 
       $leaverecord->user_name = $request->name;
@@ -40,8 +47,14 @@ class LeaverecordController extends Controller
       return redirect("/user")->withInput($message);
   }
 
-  public function user_destroy(Leaverecord $leaverecord)
+  public function user_destroy(Leaverecord $leaverecord, Request $request )
   {
+      if($request->admin != 1){
+
+        $message = ['管理者しか使えません'];
+
+        return redirect('/user')->withInput($message);
+      }
 
       $message = ['削除しました'];
 

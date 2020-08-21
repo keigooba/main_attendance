@@ -4,6 +4,10 @@ namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
+use App\Gorecord;
+use App\Policies\GorecordPolicy;
+use App\Leaverecord;
+use App\Policies\LeaverecordPolicy;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -14,6 +18,8 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         // 'App\Model' => 'App\Policies\ModelPolicy',
+        Gorecord::class => GorecordPolicy::class,
+        Leaverecord::class => LeaverecordPolicy::class,
     ];
 
     /**
