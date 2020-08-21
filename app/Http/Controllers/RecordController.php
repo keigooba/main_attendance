@@ -80,7 +80,16 @@ class RecordController extends Controller
     }
   }
 
-  public function situation(){
+  public function situation(Request $request){
+
+    // #js-show-msgの情報を受け取る
+    $message = $request->old();
+
+    // msgがないなら空にして定義する
+    if($message == null)
+    {
+      $message = [''];
+    }
 
     $today = Carbon::now()->toDateString();
 
@@ -94,6 +103,7 @@ class RecordController extends Controller
     $leaverecords = Leaverecord::whereDate('record_date',$today)->get();
 
     return view('record/situation',[
+      'message' => $message,
       'date' => $date,
       'gorecords' => $gorecords,
       'leaverecords' => $leaverecords,

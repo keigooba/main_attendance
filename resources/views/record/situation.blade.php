@@ -1,6 +1,9 @@
 @extends('layouts.template')
 @section('content')
 <!-- メインメニュー -->
+<h1 id="js-show-msg" class="msg-slide text-center font-weight-bold" style="display: none;">
+{{ $message[0] }}
+</h1>
 <div class="container-fluid padding" id="main">
 <div class="row">
   <div class="col-12 text-center">
@@ -34,12 +37,11 @@
               <td class="user">{{ $gorecord->user_name }}</td>
               <td class="time">{{ $gorecord['record_time']->format('H:i') }}</td>
               <td class="command">
-                  <a class="delete text-danger" href="/gorecord/{{ $gorecord->id }}"
-                  onclick="event.preventDefault();
-                  document.getElementById('go_destroy').submit();">
-                  {{ __('Destory') }}
-                </a>
-                <form id="go_destroy" action="/gorecord/{{ $gorecord->id }}" method="POST" style="display: none;"><input type="hidden" name="_method" value="DELETE">@csrf</form>
+                <form action="/gorecord/{{ $gorecord->id }}" method="post">
+                  <input type="hidden" name="_method" value="DELETE">
+                  @csrf
+                  <button type="submit" class="clear-decoration"><a class="delete text-danger">{{ __('Destory') }}</a></button>
+                </form>
               </td>
             </tr>
           @endforeach
@@ -67,12 +69,11 @@
               <td class="user">{{ $leaverecord->user_name }}</td>
               <td class="time">{{ $leaverecord['record_time']->format('H:i') }}</td>
               <td class="command">
-                  <a class="delete text-danger" href="/leaverecord/{{ $leaverecord->id }}"
-                  onclick="event.preventDefault();
-                  document.getElementById('leave_destroy').submit();">
-                  {{ __('Destory') }}
-                </a>
-                <form id="leave_destroy" action="/leaverecord/{{ $leaverecord->id }}" method="POST" style="display: none;"><input type="hidden" name="_method" value="DELETE">@csrf</form>
+                <form action="/leaverecord/{{ $leaverecord->id }}" method="post">
+                  <input type="hidden" name="_method" value="DELETE">
+                  @csrf
+                  <button type="submit" class="clear-decoration"><a class="delete text-danger">{{ __('Destory') }}</a></button>
+                </form>
               </td>
             </tr>
           @endforeach
@@ -82,6 +83,8 @@
   </div>
 </div>
 </div>
+<!-- メッセージ表示 -->
+<script src="{{ asset('js/message.js') }}"></script>
 <!-- 最新情報自動スクロール -->
 <script src="{{ asset('js/scroll.js') }}"></script>
 <!-- カレンダー機能 -->

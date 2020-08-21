@@ -39,17 +39,13 @@
           <tr>
             <td class="date">{{ $gorecord['record_date']->format('m/d')}}</td>
             <td class="time">{{ $gorecord['record_time']->format('H:i') }}</td>
-            <td class="command"><a href="user/gorecord/{{ $gorecord->id }}/edit" class="edit text-primary">編集</a></td>
+            <td class="command"><a href="/user/gorecord/{{ $gorecord->id }}/edit" class="edit text-primary">編集</a></td>
             <td class="command">
-            <a class="delete text-danger" href="/gorecord/{{ $gorecord->id }}"
-                  onclick="event.preventDefault();
-                  document.getElementById('go_destroy').submit();">
-                  {{ __('Destory') }}
-                </a>
-                <form id="go_destroy" action="/gorecord/{{ $gorecord->id }}" method="POST" style="display: none;">
-                  <input type="hidden" name="_method" value="DELETE">
-                  @csrf
-                </form>
+              <form action="user/gorecord/{{ $gorecord->id }}" method="post">
+                <input type="hidden" name="_method" value="DELETE">
+                @csrf
+                <button type="submit" class="clear-decoration"><a class="delete text-danger">{{ __('Destory') }}</a></button>
+              </form>
             </td>
           </tr>
           @endforeach
@@ -75,16 +71,12 @@
           <tr>
             <td class="date">{{ $leaverecord['record_date']->format('m/d') }}</td>
             <td class="time">{{ $leaverecord['record_time']->format('H:i') }}</td>
-            <td class="command"><a href="user/leaverecord/{{ $leaverecord->id }}/edit" class="edit text-primary">編集</a></td>
+            <td class="command"><a href="/user/leaverecord/{{ $leaverecord->id }}/edit" class="edit text-primary">編集</a></td>
             <td class="command">
-              <a class="delete text-danger" href="/leaverecord/{{ $leaverecord->id }}"
-                onclick="event.preventDefault();
-                document.getElementById('leave_destroy').submit();">
-                {{ __('Destory') }}
-              </a>
-              <form id="leave_destroy" action="/leaverecord/{{ $leaverecord->id }}" method="POST" style="display: none;">
+              <form action="user/leaverecord/{{ $leaverecord->id }}" method="post">
                 <input type="hidden" name="_method" value="DELETE">
                 @csrf
+                <button type="submit" class="clear-decoration"><a class="delete text-danger">{{ __('Destory') }}</a></button>
               </form>
             </td>
           </tr>
