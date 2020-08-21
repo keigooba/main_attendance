@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\UpdateUser;
 use App\User;
 use App\Gorecord;
 use App\Leaverecord;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
@@ -53,43 +56,29 @@ class UserController extends Controller
       ]);
 
     }
-    public function edit(int $id)
+    public function edit(User $user)
     {
       return view('/auth/edit');
     }
 
-    public function update(Request $request)
+    public function update(UpdateUser $request)
     {
+      $message = ['変更しました'];
+
       Auth::user()->name = $request->name;
       Auth::user()->email = $request->email;
-      Auth::user()->password = $request->password;
+      Auth::user()->password = Hash::make($request->password);
       Auth::user()->save();
 
-      redirect('/user');
-
+      return redirect('/user')->withInput($message);
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:4', 'confirmed'],
-        ]);
-    }
-
-    public function show(int $id)
+    public function show(User $user)
     {
       return view('/auth/destroy');
     }
 
-    public function destroy(int $id)
+    public function destroy(User $user)
     {
       // ユーザーに紐づく出勤レコード削除
       Auth::user()->gorecords()->delete();

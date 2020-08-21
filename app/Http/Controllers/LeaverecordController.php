@@ -7,12 +7,12 @@ use App\Leaverecord;
 
 class LeaverecordController extends Controller
 {
-  public function edit(int $id)
+  public function edit(Leaverecord $leaverecord)
   {
       $motion = ['退勤','leaverecord'];
 
       // 退勤IDに紐づくデータを取得する
-      $record = Leaverecord::findOrFail($id);
+      // $record = Leaverecord::findOrFail($id);
 
       return view('auth/record_edit',[
         'motion' => $motion,
@@ -23,7 +23,7 @@ class LeaverecordController extends Controller
   public function update(Request $request)
   {
       // 退勤IDに紐づくデータを取得する
-      $leaverecord = Leaverecord::findOrFail($request->id);
+      // $leaverecord = Leaverecord::findOrFail($request->id);
 
       $leaverecord->user_name = $request->name;
       $leaverecord->record_date = $request->date;
@@ -33,10 +33,9 @@ class LeaverecordController extends Controller
       return redirect("/user");
   }
 
-  public function destroy($id)
+  public function destroy(Leaverecord $leaverecord)
   {
-      // 退勤IDに紐づくデータを取得する
-      $leaverecord = Leaverecord::findOrFail($id);
+
       $leaverecord->delete();
 
       return redirect()->route('situation');

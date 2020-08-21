@@ -1,5 +1,4 @@
 @extends('layouts.template')
-
 @section('content')
 <!-- メインメニュー -->
 <div class="container-fluid padding" id="main">
@@ -8,6 +7,7 @@
     <div class="col-12 text-center padding">
       <h1 class="font-weight-bold">{{ $motion[0] }}日時編集</h1>
     </div>
+    <!-- $motionにはgorecord,leaverecordのいずれかが入る -->
     <form action="/user/{{ $motion[1] }}/{{ $record->id }}" method="post" class="form padding">
       <!-- updateメソッドにはPUTメソッドがルーティングされているのでPUTにする -->
       <input type="hidden" name="_method" value="PUT">

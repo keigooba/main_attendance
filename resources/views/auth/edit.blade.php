@@ -37,18 +37,8 @@
         </label>
 
         <label class="text_area">
-          <p>古い{{ __('Password') }}</p>
-          <input type="password" name="password_old" class="form-control @error('password') is-invalid @enderror" placeholder="※４文字以上" required autocomplete="new-password">
-          @error('password_old')
-              <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
-              </span>
-          @enderror
-        </label>
-
-        <label class="text_area">
           <p>新しい{{ __('Password') }}</p>
-          <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="※４文字以上" required autocomplete="new-password">
+          <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="※４文字以上" autocomplete="new-password">
           @error('password')
               <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
@@ -58,7 +48,7 @@
 
         <label class="text_area">
           <p>新しい{{ __('Confirm Password') }}</p>
-          <input type="password" name="password_confirmation" class="form-control"  required">
+          <input type="password" name="password_confirmation" class="form-control @error('password') is-invalid @enderror">
         </label>
 
         <input type="submit" name="submit" class="btn btn-warning" value="変更">

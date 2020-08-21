@@ -32,7 +32,7 @@ class RecordController extends Controller
       ]);
   }
 
-  public function post(request $request){
+  public function post(Request $request){
 
     if ($request->input('go')){
 

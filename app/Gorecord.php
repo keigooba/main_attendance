@@ -8,3 +8,4 @@ class Gorecord extends Model
 {
   protected $dates = ['record_date','record_time'];
 }
+

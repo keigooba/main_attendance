@@ -19,24 +19,25 @@ Route::post('/record', 'RecordController@post');
 // 出退勤状況ページ
 Route::get('/situation', 'RecordController@situation')->name('situation');
 Route::post('/situation', 'RecordController@date');
-Route::delete('/gorecord/{id?}', 'GorecordController@destroy');
-Route::delete('/leaverecord/{id?}', 'LeaverecordController@destroy');
+Route::delete('/gorecord/{gorecord}', 'GorecordController@destroy');
+Route::delete('/leaverecord/{leaverecord}', 'LeaverecordController@destroy');
 
 // 使い方ページ
 Route::get('/help', function() {
-  return view('/help');
+  return view('record/help');
 });
 
+// ログインページ・ログアウト・ユーザー登録ページ
 Auth::routes();
 
-// マイページ・ユーザー編集・ユーザー消去
+// マイページ・ユーザー編集ページ・ユーザー消去ページ
 Route::resource('user','UserController');
-Route::post('user/record', 'RecordController@user');
-Route::post('/user/gorecord/{id?}', 'GorecordController@destroy');
-Route::post('/user/leaverecord/{id?}', 'LeaverecordController@destroy');
+Route::post('/user/record', 'RecordController@user');
+Route::post('/user/gorecord/{gorecord}', 'GorecordController@destroy');
+Route::post('/user/leaverecord/{leaverecord}', 'LeaverecordController@destroy');
 
 // 出退勤編集ページ
-Route::get('user/gorecord/{id?}/edit', 'GorecordController@edit');
-Route::get('user/leaverecord/{id?}/edit', 'LeaverecordController@edit');
-Route::put('user/gorecord/{id?}', 'GorecordController@update');
-Route::put('user/leaverecord/{id?}', 'LeaverecordController@update');
+Route::get('/user/gorecord/{gorecord}/edit', 'GorecordController@edit');
+Route::get('/user/leaverecord/{leaverecord}/edit', 'LeaverecordController@edit');
+Route::put('/user/gorecord/{gorecord}', 'GorecordController@update');
+Route::put('/user/leaverecord/{leaverecord}', 'LeaverecordController@update');
