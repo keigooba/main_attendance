@@ -25,7 +25,7 @@ class UserUpdateLeaverecord extends FormRequest
     {
         return [
           'name' => 'required|string|max:255',
-          'date' => 'required|date|after_or_equal:today',
+          'date' => 'required|date|',
           'time' => 'required|date_format:H:i|',
         ];
     }
@@ -35,13 +35,6 @@ class UserUpdateLeaverecord extends FormRequest
         return [
             'date' => '日付',
             'time' => '出勤時間',
-        ];
-    }
-
-    public function messages()
-    {
-        return [
-            'date.after_or_equal' => ':attribute には今日以降の日付を入力してください。',
         ];
     }
 }

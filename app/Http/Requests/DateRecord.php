@@ -24,7 +24,7 @@ class DateRecord extends FormRequest
     public function rules()
     {
         return [
-            'date' => 'required|date|after_or_equal:today',
+            'date' => 'required|date',
         ];
     }
 
@@ -32,13 +32,6 @@ class DateRecord extends FormRequest
     {
         return [
             'date' => '日付',
-        ];
-    }
-
-    public function messages()
-    {
-        return [
-            'date.after_or_equal' => ':attribute には今日以降の日付を入力してください。',
         ];
     }
 }

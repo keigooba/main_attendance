@@ -40,6 +40,7 @@
                 <form action="/gorecord/{{ $gorecord->id }}" method="post">
                   <input type="hidden" name="_method" value="DELETE">
                   @csrf
+                  <input type="hidden" name="admin" value="{{ 1 }}">
                   <button type="submit" class="clear-decoration"><a class="delete text-danger">{{ __('Destory') }}</a></button>
                 </form>
               </td>
@@ -72,6 +73,7 @@
                 <form action="/leaverecord/{{ $leaverecord->id }}" method="post">
                   <input type="hidden" name="_method" value="DELETE">
                   @csrf
+                  <input type="hidden" name="admin" value="{{ 1 }}">
                   <button type="submit" class="clear-decoration"><a class="delete text-danger">{{ __('Destory') }}</a></button>
                 </form>
               </td>

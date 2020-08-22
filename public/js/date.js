@@ -4,7 +4,6 @@ $(function() {
   flatpickr(document.getElementById('date'), {
     locale: 'ja',
     dateFormat: "Y/m/d",
-    minDate: new Date()
   });
 
 });

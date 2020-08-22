@@ -27,9 +27,23 @@ class RecordController extends Controller
       // 登録ユーザーを全て取得する
       $users = User::all();
 
+      $today = Carbon::now()->toDateString();
+
+      // 今日の出勤記録を全て取得する
+      $gorecords = Gorecord::whereDate('record_date',$today)->get();
+      // 独自カラムを追加する
+      $gorecords->append('go_flg','go_class')->toArray();
+
+      // 今日の退勤記録を全て取得する
+      $leaverecords = Leaverecord::whereDate('record_date',$today)->get();
+      // 独自カラムを追加する
+      $leaverecords->append('leave_flg','leave_class')->toArray();
+
       return view('record/index',[
-          'message' => $message,
-          'users' => $users,
+        'message' => $message,
+        'users' => $users,
+        'gorecords' => $gorecords,
+        'leaverecords' => $leaverecords,
       ]);
   }
 
@@ -92,10 +106,10 @@ class RecordController extends Controller
       $message = [''];
     }
 
-    $today = Carbon::now()->toDateString();
-
     // 今日の日付を取得する
     $date = date("Y/m/d");
+
+    $today = Carbon::now()->toDateString();
 
     // 今日の出勤記録を全て取得する
     $gorecords = Gorecord::whereDate('record_date',$today)->get();
@@ -113,6 +127,8 @@ class RecordController extends Controller
 
   public function date(DateRecord $request)
   {
+      $message = ['検索しました'];
+
       // 指定された日付の出勤記録を全て取得する
       $gorecords = Gorecord::whereDate('record_date',$request->date)->get();
 
@@ -120,6 +136,7 @@ class RecordController extends Controller
       $leaverecords = Leaverecord::whereDate('record_date',$request->date)->get();
 
       return view('record/situation',[
+        'message' => $message,
         'date' => $request->date,
         'gorecords' => $gorecords,
         'leaverecords' => $leaverecords,
@@ -158,9 +175,6 @@ class RecordController extends Controller
 
   public function simple()
   {
-      // $user = User::find(1);
-      // Auth::login($user,true);
-
       // 認証処理をパスしてログイン
       Auth::loginUsingId(1, true);
 
