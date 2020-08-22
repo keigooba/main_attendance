@@ -55,3 +55,4 @@ Route::group(['middleware' => 'auth'], function() {
 
 // 簡易登録
 Route::get('/simple', 'RecordController@simple');
+

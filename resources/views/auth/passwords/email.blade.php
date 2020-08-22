@@ -9,21 +9,15 @@
       <h1 class="font-weight-bold">{{ __('Reset Password') }}</h1>
     </div>
     <!-- フォーム -->
+    @if (session('status'))
+      <div class="alert alert-success" role="alert">
+          {{ session('status') }}
+      </div>
+    @endif
     <form action="{{ route('password.email') }}" method="post" class="form padding">
       @csrf
-
       <div class="col-12">
 
-        @if (session('status'))
-          <div class="alert alert-success" role="alert">
-              {{ session('status') }}
-          </div>
-        @endif
-
-        <!-- <label class="text_area">
-          <p>ユーザー名</p>
-          <input type="text" name="username" value="{{ $user->username }}" placeholder="漢字入力">
-        </label> -->
         <label class="text_area">
           <p>{{ __('E-Mail Address') }}</p>
           <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -35,7 +29,8 @@
           @enderror
         </label>
 
-        <input type="submit" name="submit" class="btn btn-warning" value="{{ __('Send Password Reset Link') }}">
+        <input type="submit" name="submit" class="btn btn-primary" value="{{ __('Send Password Reset Link') }}">
+
 
       </div>
     </form>
