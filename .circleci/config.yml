@@ -45,7 +45,7 @@ jobs:
     steps:
       - add_ssh_keys:
           fingerprints:
-            - "be:77:76:fd:6c:aa:76:20:57:e3:2f:2b:5d:b7:f0:e7"
+            - "ef:c6:67:a6:09:ea:12:ef:25:df:4e:da:3e:15:de:c4"
       - run: ssh ${USER_NAME}@${HOST_NAME} 'cd /var/www/main_attendance/ && git pull origin master'
 
 workflows:
