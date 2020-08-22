@@ -38,7 +38,7 @@
 
         <label class="text_area">
           <p>新しい{{ __('Password') }}</p>
-          <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="※４文字以上" autocomplete="new-password">
+          <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="※8文字以上" autocomplete="new-password">
           @error('password')
               <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
