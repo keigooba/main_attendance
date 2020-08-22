@@ -149,6 +149,7 @@ return [
       "password" => "パスワード",
       "password_confirmation" => "パスワード(確認用)",
       "email" => "メールアドレス",
+      'token' => 'トークン',
     ],
 
 ];

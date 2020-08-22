@@ -6,7 +6,7 @@
   <div class="row">
     <!-- タイトル -->
     <div class="col-12 text-center padding">
-      <h1 class="font-weight-bold">{{ __('Reset Password') }}</h1>
+      <h1 class="font-weight-bold">{{ __('Reset Mailsand_Password') }}</h1>
     </div>
     <!-- フォーム -->
     @if (session('status'))
