@@ -5,5 +5,4 @@ $(function() {
     locale: 'ja',
     dateFormat: "Y/m/d",
   });
-
 });
