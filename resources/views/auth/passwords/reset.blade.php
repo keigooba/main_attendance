@@ -29,7 +29,7 @@
 
         <label class="text_area">
           <p>{{ __('Password') }}</p>
-          <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+          <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="※４文字以上">
 
           @error('password')
               <span class="invalid-feedback" role="alert">
@@ -39,11 +39,11 @@
         </label>
 
         <label class="text_area">
-          <p>{{ __('Confirm Password') }</p>
-          <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+          <p>{{ __('Confirm Password') }}</p>
+          <input id="password-confirm" type="password" class="form-control @error('password') is-invalid @enderror" name="password_confirmation" required autocomplete="new-password">
         </label>
 
-        <input type="submit" name="submit" class="btn btn-warning" value="{{ __('Reset Password') }}">
+        <input type="submit" name="submit" class="btn btn-warning" value="{{ __('Send Password Reset Link') }}">
       </div>
     </form>
   </div>
