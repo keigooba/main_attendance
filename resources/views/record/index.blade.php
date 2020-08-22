@@ -19,24 +19,31 @@
       </div>
 
       <!-- ユーザー選択 -->
-      <div class="col-md-8 user_btn js-scroll-bottom">
+      <div class="col-md-8 user_btn">
         <p class="lead mb-3">ユーザーを選択して下さい</p>
         @foreach($users as $user)
         <label class="btn btn-warning font-medium mb-2">
-          <input type="radio" name="name" value="{{ $user->name }}" style="display:none;">{{ $user->name }}
+          <input type="radio" name="name" value="{{ $user->name }}">{{ $user->name }}
         </label>
         @endforeach
       </div>
 
       <!-- 出退勤ログ -->
       <div class="col-md-4">
+        <div class="border border-secondary bg-light log_container js-scroll-bottom mb-2">
+          @foreach($gorecords as $gorecord)
+            <p>{{$gorecord['record_date']->format('m/d')}}  {{$gorecord['record_time']->format('H:i')}}<span class="{{$gorecord->go_class}}">{{$gorecord->go_flg}}</span> {{$gorecord->user_name}}</p>
+          @endforeach
+        </div>
         <div class="border border-secondary bg-light log_container js-scroll-bottom">
+        @foreach($leaverecords as $leaverecord)
+          <p>{{$leaverecord['record_date']->format('m/d')}} {{$leaverecord['record_time']->format('H:i')}}<span class="{{$leaverecord->leave_class}}">{{$leaverecord->leave_flg}}</span> {{$leaverecord->user_name}}</p>
+        @endforeach
         </div>
       </div>
     </div>
   </form>
 </div>
-
 <!-- メッセージ表示 -->
 <script src="{{ asset('js/message.js') }}"></script>
 <!-- 最新情報自動スクロール -->

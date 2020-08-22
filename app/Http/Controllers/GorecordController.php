@@ -8,8 +8,16 @@ use App\Gorecord;
 
 class GorecordController extends Controller
 {
-  public function destroy(Gorecord $gorecord)
+  public function destroy(Gorecord $gorecord, Request $request)
   {
+      if($request->admin != 1){
+
+      $message = ['この機能は使えません'];
+
+      return redirect('/situation')->withInput($message);
+
+      }
+
       $message = ['削除しました'];
 
       $gorecord->delete();

@@ -16,36 +16,32 @@
         <label class="text_area">
           <input type="hidden" name="id" value="{{ $record->id }}">
           <p>ユーザー名</p>
-          <input type="text" name="name" value="{{ $record->user_name }}">
-
+          <input type="text" name="name" class="form-control  @error('name') is-invalid @enderror" value="{{ $record->user_name }}" required autocomplete="name" autofocus>
           @error('name')
               <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
               </span>
           @enderror
         </label>
-        
         <label class="text_area">
           <p>日付</p>
-          <input type="text" name="date" id="date" value="{{ $record['record_date']->format('Y/m/d')}}">
-
+          <input type="text" name="date" class="form-control @error('date') is-invalid @enderror" id="date" value="{{ $record['record_date']->format('Y/m/d')}}">
           @error('date')
               <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
               </span>
           @enderror
         </label>
-
         <label class="text_area">
           <p>{{ $motion[0] }}時間</p>
-          <input type="text" name="time" value="{{ $record['record_time']->format('H:i') }}">
-
+          <input type="text" name="time" class="form-control @error('time') is-invalid @enderror" value="{{ $record['record_time']->format('H:i') }}">
           @error('time')
               <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
               </span>
           @enderror
         </label>
+        <input type="hidden" name="admin" value="{{ Auth::user()->id }}">
         <input type="submit" name="submit" class="btn btn-warning" value="変更">
       </div>
     </form>

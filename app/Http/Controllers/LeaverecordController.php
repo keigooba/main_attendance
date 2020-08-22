@@ -8,8 +8,16 @@ use App\Leaverecord;
 
 class LeaverecordController extends Controller
 {
-  public function destroy(Leaverecord $leaverecord)
+  public function destroy(Leaverecord $leaverecord, Request $request)
   {
+      if($request->admin != 1){
+
+      $message = ['この機能は使えません'];
+
+      return redirect('/')->withInput($message);
+
+      }
+
       $message = ['削除しました'];
 
       $leaverecord->delete();
