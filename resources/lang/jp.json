@@ -9,5 +9,6 @@
   "Logout": "ログアウト",
   "Destory": "削除",
   "Reset Password": "パスワード再発行",
-  "Send Password Reset Link": "再発行"
+  "Send Password Reset Link": "再発行",
+  "Reset Mailsand_Password": "パスワード再発行メール送信"
 }
