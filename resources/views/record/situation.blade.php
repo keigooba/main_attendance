@@ -10,7 +10,7 @@
     <h1 class="font-weight-bold mb-2">出退勤状況</h1>
     <form action="{{ route('situation') }}" method="post" class="search">
     @csrf
-      <label>
+      <label class="date_search">
         <p style="text-align: initial">日付</p>
         <input type="text" name="date" id="date" value="{{ $date }}">
       </label>

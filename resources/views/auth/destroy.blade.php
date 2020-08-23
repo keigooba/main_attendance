@@ -13,6 +13,7 @@
       <div class="col-12 text-center">
         <p><span class="font-weight-bold">{{Auth::user()->name}}</span>を本当に削除しますか？</p>
         <p class="text-danger"><span class="font-weight-bold">{{Auth::user()->name}}</span>の全ての情報が削除されます。</p>
+        <input type="hidden" name="admin" value="{{ Auth::user()->id }}">
         <input type="submit" name="submit" value="削除" class="btn btn-dark" style="border-radius: initial; float: initial">
       </div>
     </form>

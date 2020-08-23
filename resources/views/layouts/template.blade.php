@@ -77,29 +77,34 @@
     <div class="container-fluid bg-lightblue font-small" id="footer">
       <div class="row text-center pt-2">
         <!-- 各種操作一覧 -->
+        @guest
         <div class="col-md-2 operation">
-          <p class="font-weight-bold mb-2">Attendanceについて</p>
+          <p class="font-weight-bold mb-2">基本操作</p>
           <ul>
-            <li><a href="#">出勤状況</a></li>
+            <li><a href="{{ route('situation') }}">出退勤状況</a></li>
             <li><a href="/help">使い方</a></li>
-          </ul>
-        </div>
-        <div class="col-md-2 operation">
-          <p class="font-weight-bold mb-2">ユーザー操作一覧</p>
-          <ul>
             <li><a href="{{ route('register') }}">{{ __('Register') }}</a></li>
             <li><a href="{{ route('login') }}">{{ __('Login') }}</a></li>
-            <li><a href="">マイページ</a></li>
-            <li><a href="">プロフィール編集</a></li>
           </ul>
         </div>
+        @else
         <div class="col-md-2 operation">
-          <p class="mb-2" style="height:24px"></p>
+          <p class="font-weight-bold mb-2">ユーザー操作</p>
           <ul>
-            <li><a href="">パスワード変更</a></li>
-            <li><a href="">ユーザー消去</a></li>
+            <li>
+              <a class="nav_link" href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">
+                {{ __('Logout') }}
+              </a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
+            </li>
+            <li><a href="/user/{{ Auth::user()->id }}" class="nav_link">ユーザー消去</a></li>
+            <li><a href="/user/{{ Auth::user()->id }}/edit" class="nav_link">ユーザー編集</a></li>
+            <li><a href="/user" class="nav_link">{{ Auth::user()->name }}さん</a></li>
           </ul>
         </div>
+        @endguest
       </div>
     </div>
     <!-- Copyright -->

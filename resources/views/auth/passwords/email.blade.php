@@ -29,7 +29,7 @@
           @enderror
         </label>
 
-        <input type="submit" name="submit" class="btn btn-primary" value="{{ __('Send Password Reset Link') }}">
+        <input type="submit" name="submit" class="btn btn-primary">
 
 
       </div>
