@@ -43,7 +43,7 @@
           <input id="password-confirm" type="password" class="form-control @error('password') is-invalid @enderror" name="password_confirmation" required autocomplete="new-password">
         </label>
 
-        <input type="submit" name="submit" class="btn btn-warning" value="{{ __('Send Password Reset Link') }}">
+        <input type="submit" name="submit" class="btn btn-primary" value="{{ __('Send Password Reset Link') }}">
       </div>
     </form>
   </div>

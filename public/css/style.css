@@ -267,7 +267,7 @@ input[type="password"] {
 
   /* ヘッダー */
   .navbar {
-    font-size: 2.5rem;
+    font-size: 2.1rem;
   }
 
   /* ユーザー選択 */
@@ -428,6 +428,9 @@ input[type="password"] {
   }
   .user {
     min-width: 100px;
+  }
+  .date_search input[type="text"] {
+    width: 180px;
   }
 
 }

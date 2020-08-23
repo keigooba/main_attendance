@@ -78,8 +78,15 @@ class UserController extends Controller
       return view('/auth/destroy');
     }
 
-    public function destroy(User $user)
+    public function destroy(User $user, Request $request)
     {
+      if($request->admin == 1){
+
+        $message = ['管理者は削除できません'];
+
+        return redirect('/user')->withInput($message);
+      }
+
       // ユーザーに紐づく出勤レコード削除
       Auth::user()->gorecords()->delete();
 
