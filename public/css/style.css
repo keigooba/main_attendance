@@ -177,10 +177,11 @@ input[type="radio"] {
 
 /* テーブル */
 .mypage_table {
+  width: 70%;
   margin: 1rem auto;
 }
 .situation_table {
-  width: 55%;
+  width: 70%;
   margin: 1rem auto;
 }
 .id {
