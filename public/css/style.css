@@ -176,16 +176,9 @@ input[type="radio"] {
 }
 
 /* テーブル */
-.mypage_table {
-  width: 70%;
-  margin: 1rem auto;
-}
+.mypage_table,
 .situation_table {
-  width: 70%;
   margin: 1rem auto;
-}
-.id {
-  min-width: 75px;
 }
 .date ,
 .time,
@@ -415,17 +408,10 @@ input[type="password"] {
     overflow-y : scroll;
     height: 300px;
   }
-  .id {
-    min-width: 35px;
-  }
-  .date {
-    min-width: 105px;
-  }
-  .time {
+  .date ,
+  .time,
+  .command  {
   min-width: 80px;
-  }
-  .command {
-  min-width: 60px;
   }
   .user {
     min-width: 100px;
