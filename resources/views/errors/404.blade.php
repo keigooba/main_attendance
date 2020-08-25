@@ -5,9 +5,13 @@
   <div class="row">
     <div class="col-12 text-center p-4 m-4">
       <p>お探しのページは見つかりませんでした。</p>
-      <!-- <a href="/" class="btn btn-dark text-light mt-4">
+      @guest
+      <a class="btn btn-dark text-light mt-4" href="/">
+      @else
+      <a class="btn btn-dark text-light mt-4" href="/user">
+      @endguest
         トップページに戻る
-      </a> -->
+      </a>
     </div>
   </div>
 </div>

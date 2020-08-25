@@ -28,6 +28,6 @@ class LeaverecordPolicy
      */
     public function view(User $user, Leaverecord $leaverecord)
     {
-        return $user->name === $leaverecord->user_name;
+        // return $user->name === $leaverecord->user_name;
     }
 }

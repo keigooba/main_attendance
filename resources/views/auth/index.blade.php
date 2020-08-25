@@ -42,7 +42,7 @@
             <td class="time">{{ $gorecord['record_time']->format('H:i') }}</td>
             <td class="command"><a href="/user/gorecord/{{ $gorecord->id }}/edit" class="edit text-primary">編集</a></td>
             <td class="command">
-              <form action="user/gorecord/{{ $gorecord->id }}" method="post">
+              <form action="/user/gorecord/{{ $gorecord->id }}" method="post">
                 <input type="hidden" name="_method" value="DELETE">
                 @csrf
                 <input type="hidden" name="admin" value="{{ Auth::user()->id }}">
@@ -75,7 +75,7 @@
             <td class="time">{{ $leaverecord['record_time']->format('H:i') }}</td>
             <td class="command"><a href="/user/leaverecord/{{ $leaverecord->id }}/edit" class="edit text-primary">編集</a></td>
             <td class="command">
-              <form action="user/leaverecord/{{ $leaverecord->id }}" method="post">
+              <form action="/user/leaverecord/{{ $leaverecord->id }}" method="post">
                 <input type="hidden" name="_method" value="DELETE">
                 @csrf
                 <input type="hidden" name="admin" value="{{ Auth::user()->id }}">

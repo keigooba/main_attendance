@@ -28,6 +28,6 @@ class GorecordPolicy
      */
     public function view(User $user, Gorecord $gorecord)
     {
-        return $user->name === $gorecord->user_name;
+        // return $user->name === $gorecord->user_name;
     }
 }

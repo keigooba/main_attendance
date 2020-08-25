@@ -5,7 +5,7 @@ $(function() {
   var msg = $jsShowMsg.text();
   if(msg.replace(/^[\s　]+|[\s　]+$/g, "").length){
     $jsShowMsg.slideToggle('slow');
-    setTimeout(function() { $jsShowMsg.slideToggle('slow'); }, 2000);
+    setTimeout(function() { $jsShowMsg.slideToggle('slow'); }, 1000);
   }
-
+  
 });
