@@ -5,9 +5,9 @@
   <div class="row">
     <div class="col-12 text-center p-4 m-4">
       <p>エラーが起きています。再度アクセスしてみて下さい。</p>
-      <a href="/" class="btn btn-dark text-light mt-4">
+      <!-- <a href="/" class="btn btn-dark text-light mt-4">
         トップページに戻る
-      </a>
+      </a> -->
     </div>
   </div>
 </div>
