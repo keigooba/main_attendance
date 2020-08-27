@@ -21,7 +21,7 @@ class RegisterController extends Controller
     | provide this functionality without requiring any additional code.
     |
     */
-
+    // (get)showRegistrationFormメソッド保存 (post)register保存
     use RegistersUsers;
 
     /**

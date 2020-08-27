@@ -176,6 +176,9 @@ class RecordController extends Controller
   public function simple()
   {
       // 認証処理をパスしてログイン
+      // $user = User::find($user_id);
+      // Auth::login($user,true);
+      // Auth::attempt()
       Auth::loginUsingId(1, true);
 
       return redirect('/user');

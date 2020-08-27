@@ -18,7 +18,7 @@ class LoginController extends Controller
     | to conveniently provide its functionality to your applications.
     |
     */
-
+    // (get)showLoginFormメソッド保存 (post)loginメソッド保存
     use AuthenticatesUsers;
 
     /**
