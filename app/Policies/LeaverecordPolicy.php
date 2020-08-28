@@ -28,6 +28,7 @@ class LeaverecordPolicy
      */
     public function view(User $user, Leaverecord $leaverecord)
     {
+        // 管理者が使いたいので指定できない
         // return $user->name === $leaverecord->user_name;
     }
 }

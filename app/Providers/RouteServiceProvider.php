@@ -21,6 +21,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
+    //登録・ログイン後はトップページではなくマイページに移動する
     public const HOME = '/user';
 
     /**
@@ -31,7 +32,7 @@ class RouteServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-
+        
         parent::boot();
     }
 
