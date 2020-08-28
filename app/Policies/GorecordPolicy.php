@@ -28,6 +28,7 @@ class GorecordPolicy
      */
     public function view(User $user, Gorecord $gorecord)
     {
+        // 管理者が使いたいので指定できない
         // return $user->name === $gorecord->user_name;
     }
 }

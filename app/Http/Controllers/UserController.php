@@ -65,6 +65,7 @@ class UserController extends Controller
     {
       $message = ['変更しました'];
 
+      // ユーザー情報の変更
       Auth::user()->name = $request->name;
       Auth::user()->email = $request->email;
       Auth::user()->password = Hash::make($request->password);

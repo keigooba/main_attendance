@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Gorecord extends Model
 {
+  // Gorecordの日付と時間のフォーマットを指定
   protected $dates = ['record_date','record_time'];
 
   /**

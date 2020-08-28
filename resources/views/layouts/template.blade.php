@@ -47,7 +47,7 @@
       <nav class="header_nav">
         <ul id="nav-toggle-2">
         @guest
-          <li><a href="/simple" class="nav_link btn-warning text-success">管理者ログイン</a></li>
+          <li><a href="/simple" class="nav_link btn-warning">管理者ログイン</a></li>
           <li><a href="/help" class="nav_link">使い方</a></li>
           <li><a href="{{ route('register') }}" class="nav_link">{{ __('Register') }}</a></li>
           <li><a href="{{ route('login') }}" class="nav_link">{{ __('Login') }}</a></li>
@@ -121,7 +121,6 @@
   <script src="https://npmcdn.com/flatpickr/dist/flatpickr.min.js"></script>
   <!-- 日本語化のための追加スクリプト -->
   <script src="https://npmcdn.com/flatpickr/dist/l10n/ja.js"></script>
-
   <!-- テンプレートScripts -->
   <script src="{{ asset('js/template.js') }}"></script>
 

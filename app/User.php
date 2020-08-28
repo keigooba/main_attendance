@@ -45,6 +45,7 @@ class User extends Authenticatable
         $this->notify(new CustomResetPassword($token));
     }
 
+    // 以下IDではなく名前を指定した理由はname情報を出勤・退勤テーブルで取得したいため（不都合が多いので本来は外部結合を使ってユーザー名を取得し、nameを使わず、IDで指定する)
     public function gorecords()
     {
         return $this->hasMany('App\Gorecord','user_name','name');
@@ -54,11 +55,6 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Leaverecord','user_name','name');
     }
-
-    // public function sendPasswordResetNotification($token)
-    // {
-    //     Mail::to($this)->send(new ResetPassword($token));
-    // }
 
 
 }

@@ -11,6 +11,7 @@ use App\Leaverecord;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
+// 出勤・退勤テーブル両方を取り出す時に使用
 class RecordController extends Controller
 {
   public function index(Request $request)
