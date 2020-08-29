@@ -25,7 +25,7 @@
 <body>
   <!-- ヘッダー -->
   <header>
-    <nav class="navbar navbar-light bg-lightblue fixed-top font-medium font-weight-bold" id="header">
+    <nav class="navbar navbar-light bg-lightblue fixed-top font-small font-weight-bold" id="header">
     <div class="container-fluid">
     @guest
       <a class="header_title " href="/">
